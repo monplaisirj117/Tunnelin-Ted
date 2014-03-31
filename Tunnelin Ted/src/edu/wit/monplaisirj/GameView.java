@@ -49,7 +49,7 @@ public class GameView extends SurfaceView {
                                   int width, int height) {
                     }
              });
-             bmp = BitmapFactory.decodeResource(getResources(), R.drawable.ted_sprite);
+             bmp = BitmapFactory.decodeResource(getResources(), R.drawable.enemy);
              map = BitmapFactory.decodeResource(getResources(), R.drawable.soil);
              sprite = new Sprite(this, bmp);
        }

@@ -9,8 +9,8 @@ import android.graphics.Rect;
 
 public class Sprite {
 	
-    private static final int BMP_ROWS = 2;
-    private static final int BMP_COLUMNS = 2;
+    private static final int BMP_ROWS = 4;
+    private static final int BMP_COLUMNS = 3;
     private int x = 250;
     private int y = 100;
     private int xSpeed = 5;
@@ -25,7 +25,12 @@ public class Sprite {
           this.gameView = gameView;
           this.bmp = bmp;
           this.width = bmp.getWidth() / BMP_COLUMNS;
-          this.height = bmp.getHeight() / BMP_ROWS;
+          this.height =  bmp.getHeight() / BMP_ROWS;
+          System.out.println(bmp.getWidth());
+          System.out.println(bmp.getHeight());
+          System.out.println(width);
+          System.out.println(height);
+          
     }
 
     private void update() {
@@ -42,7 +47,6 @@ public class Sprite {
     @SuppressLint("DrawAllocation")
 	public void onDraw(Canvas canvas) {
           update();
-          
           int srcX = currentFrame * width;
           int srcY = 1 * height;
           Rect src = new Rect(srcX, srcY, srcX + width, srcY + height);
