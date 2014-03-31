@@ -11,11 +11,14 @@ import android.view.SurfaceView;
  
 @SuppressLint("WrongCall")
 public class GameView extends SurfaceView {
-       private Bitmap bmp;
+       private Bitmap tedAnim;
+       private Bitmap tedBgAnim;
+       private Bitmap tunnelBitmap;
        private Bitmap map;
        private SurfaceHolder holder;
        private GameLoopThread gameLoopThread;
-       private Sprite sprite;
+       private TedSprite tedSprite;
+       private TedSpriteBG bgSprite;
        private int x = 0; 
        private int xSpeed = 1;
       
@@ -49,9 +52,12 @@ public class GameView extends SurfaceView {
                                   int width, int height) {
                     }
              });
-             bmp = BitmapFactory.decodeResource(getResources(), R.drawable.enemy);
+             tedAnim = BitmapFactory.decodeResource(getResources(), R.drawable.ted_extended);
+             tedBgAnim = BitmapFactory.decodeResource(getResources(), R.drawable.ted_background_soil);
+             tunnelBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ted_tunnel);
              map = BitmapFactory.decodeResource(getResources(), R.drawable.soil);
-             sprite = new Sprite(this, bmp);
+             tedSprite = new TedSprite(this, tedAnim);
+             bgSprite = new TedSpriteBG(this, tedBgAnim);            
        }
  
        @Override
@@ -59,6 +65,8 @@ public class GameView extends SurfaceView {
            
     	   //canvas.drawColor(Color.BLACK);
     	   canvas.drawBitmap(map, 0, 0, null);
-           sprite.onDraw(canvas);
+    	   canvas.drawBitmap(tunnelBitmap, tedSprite.getX()+3, tedSprite.getY()-60, null);
+    	   bgSprite.onDraw(canvas);
+           tedSprite.onDraw(canvas);
        }
 }
