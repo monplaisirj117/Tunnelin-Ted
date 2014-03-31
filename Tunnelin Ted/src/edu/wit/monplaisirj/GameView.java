@@ -19,6 +19,7 @@ public class GameView extends SurfaceView {
        private GameLoopThread gameLoopThread;
        private TedSprite tedSprite;
        private TedSpriteBG bgSprite;
+       private TunnelSprite tunnelSprite;
        private int x = 0; 
        private int xSpeed = 1;
       
@@ -54,19 +55,17 @@ public class GameView extends SurfaceView {
              });
              tedAnim = BitmapFactory.decodeResource(getResources(), R.drawable.ted_extended);
              tedBgAnim = BitmapFactory.decodeResource(getResources(), R.drawable.ted_background_soil);
-             tunnelBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ted_tunnel);
+             tunnelBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ted_tunnel_sprite);
              map = BitmapFactory.decodeResource(getResources(), R.drawable.soil);
              tedSprite = new TedSprite(this, tedAnim);
              bgSprite = new TedSpriteBG(this, tedBgAnim);            
+             tunnelSprite = new TunnelSprite(this, tunnelBitmap);
        }
  
-       @Override
        protected void onDraw(Canvas canvas) {
-           
     	   //canvas.drawColor(Color.BLACK);
-    	   canvas.drawBitmap(map, 0, 0, null);
-    	   canvas.drawBitmap(tunnelBitmap, tedSprite.getX()+3, tedSprite.getY()-60, null);
     	   bgSprite.onDraw(canvas);
            tedSprite.onDraw(canvas);
+           tunnelSprite.onDraw(canvas);
        }
 }

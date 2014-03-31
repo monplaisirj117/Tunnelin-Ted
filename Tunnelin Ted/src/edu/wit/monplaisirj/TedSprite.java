@@ -11,8 +11,8 @@ public class TedSprite {
 	
     private static final int BMP_ROWS = 2;
     private static final int BMP_COLUMNS = 2;
-    private int x = 250;
-    private int y = 100;
+    private static int x = 250;
+    private static int y = 100;
     private int xSpeed = 5;
     private int ySpeed = 5;
     private GameView gameView;
@@ -54,10 +54,10 @@ public class TedSprite {
           canvas.drawBitmap(tedAnim, src, dst, null);
    
     }
-    public int getX(){
+    public static int getX(){
     	return x;
     }
-    public int getY(){
+    public static int getY(){
     	return y;
     }
 }
