@@ -21,6 +21,7 @@ public final class R {
         public static final int activity_vertical_margin=0x7f040001;
     }
     public static final class drawable {
+<<<<<<< HEAD
         public static final int abc=0x7f020000;
         public static final int bad1=0x7f020001;
         public static final int dinoskull=0x7f020002;
@@ -38,6 +39,19 @@ public final class R {
         public static final int ted_outlined=0x7f02000e;
         public static final int ted_sprite=0x7f02000f;
         public static final int tedoutlined=0x7f020010;
+=======
+        public static final int bad1=0x7f020000;
+        public static final int dinoskull=0x7f020001;
+        public static final int ic_launcher=0x7f020002;
+        public static final int oted=0x7f020003;
+        public static final int soil=0x7f020004;
+        public static final int ted=0x7f020005;
+        public static final int ted_background_soil=0x7f020006;
+        public static final int ted_extended=0x7f020007;
+        public static final int ted_outlined=0x7f020008;
+        public static final int ted_sprite=0x7f020009;
+        public static final int ted_tunnel=0x7f02000a;
+>>>>>>> 9e6876c44040a59cc34b095844b2cc2463a029d2
     }
     public static final class id {
         public static final int action_settings=0x7f080000;

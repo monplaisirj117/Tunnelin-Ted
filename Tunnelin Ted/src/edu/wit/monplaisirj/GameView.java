@@ -14,13 +14,20 @@ import android.view.SurfaceView;
  
 @SuppressLint("WrongCall")
 public class GameView extends SurfaceView {
-       private Bitmap bmp;
+       private Bitmap tedAnim;
+       private Bitmap tedBgAnim;
+       private Bitmap tunnelBitmap;
        private Bitmap map;
        private Bitmap back;
        private SurfaceHolder holder;
        private GameLoopThread gameLoopThread;
+<<<<<<< HEAD
        private Sprite sprite;
        private Sprite sprite_two;
+=======
+       private TedSprite tedSprite;
+       private TedSpriteBG bgSprite;
+>>>>>>> 9e6876c44040a59cc34b095844b2cc2463a029d2
        private int x = 0; 
        private int xSpeed = 1;
        private List<Sprite> sprites = new ArrayList<Sprite>();
@@ -56,6 +63,7 @@ public class GameView extends SurfaceView {
                                   int width, int height) {
                     }
              });
+<<<<<<< HEAD
              
              map = BitmapFactory.decodeResource(getResources(), R.drawable.soil);
             // sprite = new Sprite(this, bmp);
@@ -67,6 +75,14 @@ public class GameView extends SurfaceView {
        	Bitmap bmp =  BitmapFactory.decodeResource(getResources(), resource);
    		return new Sprite(this, bmp);
        	
+=======
+             tedAnim = BitmapFactory.decodeResource(getResources(), R.drawable.ted_extended);
+             tedBgAnim = BitmapFactory.decodeResource(getResources(), R.drawable.ted_background_soil);
+             tunnelBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ted_tunnel);
+             map = BitmapFactory.decodeResource(getResources(), R.drawable.soil);
+             tedSprite = new TedSprite(this, tedAnim);
+             bgSprite = new TedSpriteBG(this, tedBgAnim);            
+>>>>>>> 9e6876c44040a59cc34b095844b2cc2463a029d2
        }
        
        private void createSprites()
@@ -81,11 +97,17 @@ public class GameView extends SurfaceView {
            
     	   //canvas.drawColor(Color.BLACK);
     	   canvas.drawBitmap(map, 0, 0, null);
+<<<<<<< HEAD
     	   for(Sprite sprite: sprites)
     	   {
     		   sprite.onDraw(canvas);
     	   }
            //sprite.onDraw(canvas);
          
+=======
+    	   canvas.drawBitmap(tunnelBitmap, tedSprite.getX()+3, tedSprite.getY()-60, null);
+    	   bgSprite.onDraw(canvas);
+           tedSprite.onDraw(canvas);
+>>>>>>> 9e6876c44040a59cc34b095844b2cc2463a029d2
        }
 }
