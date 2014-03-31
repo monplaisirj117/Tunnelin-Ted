@@ -3,6 +3,7 @@ package edu.wit.monplaisirj;
 
 import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Rect;
 
@@ -14,7 +15,7 @@ public class TedSprite {
     private static int x = 250;
     private static int y = 100;
     private int xSpeed = 5;
-    private int ySpeed = 5;
+    private int ySpeed = 10;
     private GameView gameView;
     private Bitmap tedAnim;
     private int currentFrame = 0;
@@ -26,24 +27,21 @@ public class TedSprite {
           this.tedAnim = bmp;
           this.width = bmp.getWidth() / BMP_COLUMNS;
           this.height =  bmp.getHeight() / BMP_ROWS;
-          System.out.println(bmp.getWidth());
-          System.out.println(bmp.getHeight());
-          System.out.println(width);
-          System.out.println(height);
           
     }
 
     private void update() {
           if (y >= gameView.getHeight() - height - ySpeed) {
-                 ySpeed = -5;
+                 ySpeed = -10;
           }
           if (y + ySpeed < 0) {
-                 ySpeed = 5;
+                 ySpeed = 10;
           }
           y = y + ySpeed;
           currentFrame = ++currentFrame % BMP_COLUMNS;
     }
-
+    
+  
     @SuppressLint("DrawAllocation")
 	public void onDraw(Canvas canvas) {
           update();

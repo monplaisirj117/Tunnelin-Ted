@@ -1,5 +1,8 @@
 package edu.wit.monplaisirj;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -15,13 +18,23 @@ public class GameView extends SurfaceView {
        private Bitmap tedBgAnim;
        private Bitmap tunnelBitmap;
        private Bitmap map;
+       private Bitmap back;
        private SurfaceHolder holder;
        private GameLoopThread gameLoopThread;
+<<<<<<< HEAD
+       private Sprite sprite;
+       private Sprite sprite_two;
+=======
        private TedSprite tedSprite;
        private TedSpriteBG bgSprite;
+<<<<<<< HEAD
        private TunnelSprite tunnelSprite;
+=======
+>>>>>>> 9e6876c44040a59cc34b095844b2cc2463a029d2
+>>>>>>> dea5dcf6334483a493eca02a28c32e86df919115
        private int x = 0; 
        private int xSpeed = 1;
+       private List<Sprite> sprites = new ArrayList<Sprite>();
       
        public GameView(Context context) {
              super(context);
@@ -44,6 +57,7 @@ public class GameView extends SurfaceView {
  
                     @Override
                     public void surfaceCreated(SurfaceHolder holder) {
+                    	   createSprites();
                            gameLoopThread.setRunning(true);
                            gameLoopThread.start();
                     }
@@ -53,20 +67,59 @@ public class GameView extends SurfaceView {
                                   int width, int height) {
                     }
              });
+<<<<<<< HEAD
+             
+             map = BitmapFactory.decodeResource(getResources(), R.drawable.soil);
+            // sprite = new Sprite(this, bmp);
+   
+       }
+       
+       private Sprite createSprite(int resource)
+       {
+       	Bitmap bmp =  BitmapFactory.decodeResource(getResources(), resource);
+   		return new Sprite(this, bmp);
+       	
+=======
              tedAnim = BitmapFactory.decodeResource(getResources(), R.drawable.ted_extended);
              tedBgAnim = BitmapFactory.decodeResource(getResources(), R.drawable.ted_background_soil);
              tunnelBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ted_tunnel_sprite);
              map = BitmapFactory.decodeResource(getResources(), R.drawable.soil);
              tedSprite = new TedSprite(this, tedAnim);
              bgSprite = new TedSpriteBG(this, tedBgAnim);            
+<<<<<<< HEAD
              tunnelSprite = new TunnelSprite(this, tunnelBitmap);
+=======
+>>>>>>> 9e6876c44040a59cc34b095844b2cc2463a029d2
+>>>>>>> dea5dcf6334483a493eca02a28c32e86df919115
        }
+       
+       private void createSprites()
+       {
+    	   sprites.add(createSprite(R.drawable.ted_extended));
+    	   sprites.add(createSprite(R.drawable.ted_background_clay));
+       }
+
  
        protected void onDraw(Canvas canvas) {
     	   //canvas.drawColor(Color.BLACK);
     	   canvas.drawBitmap(map, 0, 0, null);
+<<<<<<< HEAD
     	   bgSprite.onDraw(canvas);
            tedSprite.onDraw(canvas);
            tunnelSprite.onDraw(canvas);
+=======
+<<<<<<< HEAD
+    	   for(Sprite sprite: sprites)
+    	   {
+    		   sprite.onDraw(canvas);
+    	   }
+           //sprite.onDraw(canvas);
+         
+=======
+    	   canvas.drawBitmap(tunnelBitmap, tedSprite.getX()+3, tedSprite.getY()-60, null);
+    	   bgSprite.onDraw(canvas);
+           tedSprite.onDraw(canvas);
+>>>>>>> 9e6876c44040a59cc34b095844b2cc2463a029d2
+>>>>>>> dea5dcf6334483a493eca02a28c32e86df919115
        }
 }
